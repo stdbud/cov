@@ -8,12 +8,21 @@ namespace clvk {
 using IcdDispatch = cl_icd_dispatch;
 extern IcdDispatch icdTable;
 
+enum class ObjectMagic : uint32_t {
+    PLATFORM_MAGIC = 4,
+};
+
+template<typename T, T magic>
 class ClObject {
 public:
     explicit ClObject()
-        : m_icdTable(&icdTable) {}
+        : m_icdTable(&icdTable),
+          m_magic(magic) {}
+
+    bool isValid() const { return m_magic == magic; }
 private:
     IcdDispatch* m_icdTable;
+    T m_magic;
 };
 
 template<typename Object>
@@ -48,6 +57,11 @@ public:
         }
         return true;
     }
+
+    uint32_t getRefCount() const
+    {
+        return m_refCount;
+    }
 private:
     std::atomic<uint32_t> m_refCount;
 };
@@ -56,6 +70,13 @@ template<typename ObjectPtr>
 inline ObjectPtr castObjectPointer(void* object)
 {
     return static_cast<ObjectPtr>(object);
+}
+
+template<typename ObjectPtr>
+bool isValidObject(void* object)
+{
+    auto obj = castObjectPointer<ObjectPtr>(object);
+    return obj->isValid();
 }
 
 }
