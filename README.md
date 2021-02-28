@@ -1,6 +1,9 @@
 # clvk
-opencl on vulkan
+
+opencl on vulkan<br>
+**just for fun!**
 
 # supported API list
-clGetPlatformIDs
-clGetPlatformInfo
+
+clGetPlatformIDs<br>
+clGetPlatformInfo<br>
