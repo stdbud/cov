@@ -1,4 +1,4 @@
-# clvk
+# cov(opencl on vulkan)
 
 opencl on vulkan<br>
 **just for fun!**
