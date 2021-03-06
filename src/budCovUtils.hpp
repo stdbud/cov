@@ -4,11 +4,12 @@
 #include <cstdint>
 #include <unordered_map>
 #include <string>
+#include <vector>
+#include <mutex>
 
 namespace cov {
 
-#define printInfo printf
-#define printError printf
+namespace utils {
 
 inline cl_int getStringParam(const std::string& param,
                              size_t paramValueSize,
@@ -21,6 +22,8 @@ inline cl_int getStringParam(const std::string& param,
         param.copy(static_cast<char*>(paramValue), param.size());
     }
     return CL_SUCCESS;
+}
+
 }
 
 }

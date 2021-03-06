@@ -6,9 +6,9 @@ IcdDispatch g_icdTable = {
     /* OpenCL 1.0 */
     clGetPlatformIDs,
     clGetPlatformInfo,
-nullptr,//   cl_api_clGetDeviceIDs clGetDeviceIDs;
+    clGetDeviceIDs,
 nullptr,//   cl_api_clGetDeviceInfo clGetDeviceInfo;
-nullptr,//   cl_api_clCreateContext clCreateContext;
+    clCreateContext,
 nullptr,//   cl_api_clCreateContextFromType clCreateContextFromType;
 nullptr,//   cl_api_clRetainContext clRetainContext;
 nullptr,//   cl_api_clReleaseContext clReleaseContext;

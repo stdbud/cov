@@ -3,16 +3,18 @@
 #include "budCovCommon.hpp"
 #include "budCovObject.hpp"
 #include "budCovUtils.hpp"
-#include "budCovIcd.h"
 
 namespace cov {
 
+class Device;
+
 class Platform : public ClObject<ObjectMagic, ObjectMagic::PLATFORM_MAGIC> {
+    friend class Device;
 public:
     Platform();
     ~Platform();
 
-    cl_int getInitResult() const;
+    static constexpr uint32_t getNumDevices() { return 1; }
 
     const std::string m_profile;
     const std::string m_version;
@@ -21,7 +23,8 @@ public:
     const std::string m_extensions;
 private:
     VkInstance m_vkInstance;
-    VkResult m_vkRes;
+    VkPhysicalDevice m_vkPhysicalDevice;
+    uint32_t m_vkQueueFamilyIndex;
 };
 
 cl_int getPlatformIDs(cl_uint numEntries,
