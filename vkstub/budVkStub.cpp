@@ -12,10 +12,12 @@ VKAPI_ATTR void VKAPI_CALL vkDestroyInstance(VkInstance instance,
 {
 }
 
-// VKAPI_ATTR VkResult VKAPI_CALL vkEnumeratePhysicalDevices(
-//     VkInstance                                  instance,
-//     uint32_t*                                   pPhysicalDeviceCount,
-//     VkPhysicalDevice*                           pPhysicalDevices);
+VKAPI_ATTR VkResult VKAPI_CALL vkEnumeratePhysicalDevices(VkInstance instance,
+                                                          uint32_t* pPhysicalDeviceCount,
+                                                          VkPhysicalDevice* pPhysicalDevices)
+{
+    return VK_SUCCESS;
+}
 
 // VKAPI_ATTR void VKAPI_CALL vkGetPhysicalDeviceFeatures(
 //     VkPhysicalDevice                            physicalDevice,
@@ -39,10 +41,11 @@ VKAPI_ATTR void VKAPI_CALL vkDestroyInstance(VkInstance instance,
 //     VkPhysicalDevice                            physicalDevice,
 //     VkPhysicalDeviceProperties*                 pProperties);
 
-// VKAPI_ATTR void VKAPI_CALL vkGetPhysicalDeviceQueueFamilyProperties(
-//     VkPhysicalDevice                            physicalDevice,
-//     uint32_t*                                   pQueueFamilyPropertyCount,
-//     VkQueueFamilyProperties*                    pQueueFamilyProperties);
+VKAPI_ATTR void VKAPI_CALL vkGetPhysicalDeviceQueueFamilyProperties(VkPhysicalDevice physicalDevice,
+                                                                    uint32_t* pQueueFamilyPropertyCount,
+                                                                    VkQueueFamilyProperties* pQueueFamilyProperties)
+{
+}
 
 // VKAPI_ATTR void VKAPI_CALL vkGetPhysicalDeviceMemoryProperties(
 //     VkPhysicalDevice                            physicalDevice,
@@ -56,15 +59,18 @@ VKAPI_ATTR void VKAPI_CALL vkDestroyInstance(VkInstance instance,
 //     VkDevice                                    device,
 //     const char*                                 pName);
 
-// VKAPI_ATTR VkResult VKAPI_CALL vkCreateDevice(
-//     VkPhysicalDevice                            physicalDevice,
-//     const VkDeviceCreateInfo*                   pCreateInfo,
-//     const VkAllocationCallbacks*                pAllocator,
-//     VkDevice*                                   pDevice);
+VKAPI_ATTR VkResult VKAPI_CALL vkCreateDevice(VkPhysicalDevice physicalDevice,
+                                              const VkDeviceCreateInfo* pCreateInfo,
+                                              const VkAllocationCallbacks* pAllocator,
+                                              VkDevice* pDevice)
+{
+    return VK_SUCCESS;
+}
 
-// VKAPI_ATTR void VKAPI_CALL vkDestroyDevice(
-//     VkDevice                                    device,
-//     const VkAllocationCallbacks*                pAllocator);
+VKAPI_ATTR void VKAPI_CALL vkDestroyDevice(VkDevice device,
+                                           const VkAllocationCallbacks* pAllocator)
+{
+}
 
 // VKAPI_ATTR VkResult VKAPI_CALL vkEnumerateInstanceExtensionProperties(
 //     const char*                                 pLayerName,
@@ -86,11 +92,12 @@ VKAPI_ATTR void VKAPI_CALL vkDestroyInstance(VkInstance instance,
 //     uint32_t*                                   pPropertyCount,
 //     VkLayerProperties*                          pProperties);
 
-// VKAPI_ATTR void VKAPI_CALL vkGetDeviceQueue(
-//     VkDevice                                    device,
-//     uint32_t                                    queueFamilyIndex,
-//     uint32_t                                    queueIndex,
-//     VkQueue*                                    pQueue);
+VKAPI_ATTR void VKAPI_CALL vkGetDeviceQueue(VkDevice device,
+                                            uint32_t queueFamilyIndex,
+                                            uint32_t queueIndex,
+                                            VkQueue* pQueue)
+{
+}
 
 // VKAPI_ATTR VkResult VKAPI_CALL vkQueueSubmit(
 //     VkQueue                                     queue,
