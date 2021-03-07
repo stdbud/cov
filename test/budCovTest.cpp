@@ -3,10 +3,12 @@
 #include <thread>
 #include <functional>
 #include <algorithm>
+#include <iostream>
 #include "budCovTestPlatform.h"
 
 int main(int argc, const char** argv)
 {
+    std::cout << "start test" << std::endl;
     std::vector<std::thread> threads;
     for (int i = 1; i < argc; i++) {
         std::string arg(argv[i]);

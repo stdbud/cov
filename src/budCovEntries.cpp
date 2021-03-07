@@ -4,6 +4,14 @@
 #include "budCovDevice.h"
 #include "budCovContext.h"
 
+#if defined(__clang__)
+// do something
+#elif defined(__GNUC__) || defined(__GNUG__)
+// do something
+#elif defined(_MSC_VER)
+// do something
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
