@@ -12,6 +12,7 @@ enum class ObjectMagic : uint8_t {
     PLATFORM_MAGIC = 1,
     DEVICE_MAGIC = 2,
     CONTEXT_MAGIC = 4,
+    QUEUE_MAGIC = 6,
 };
 
 // make sure all the countable class is allocated by operator new
@@ -40,6 +41,7 @@ class ClObject {
     friend class Platform;
     friend class Device;
     friend class Context;
+    friend class Queue;
 public:
     ClObject() : m_magic(magic), m_initSuccess(true) { m_icdTable = getIcdTable(); }
 

@@ -3,6 +3,7 @@
 #include "budCovPlatform.h"
 #include "budCovDevice.h"
 #include "budCovContext.h"
+#include "budCovQueue.h"
 
 #if defined(__clang__)
 // do something
@@ -109,6 +110,60 @@ clCreateContext(const cl_context_properties* properties,
     }
 
     return cov::createContext(properties, num_devices, devices, pfn_notify, user_data, errcode_ret);
+}
+
+CL_API_ENTRY cl_int CL_API_CALL
+clRetainContext(cl_context context) CL_API_SUFFIX__VERSION_1_0
+{
+    if (!cov::isValidObject<cov::Context>(context)) return CL_INVALID_CONTEXT;
+
+    return cov::retainContext(context);
+}
+
+CL_API_ENTRY cl_int CL_API_CALL
+clReleaseContext(cl_context context) CL_API_SUFFIX__VERSION_1_0
+{
+    if (!cov::isValidObject<cov::Context>(context)) return CL_INVALID_CONTEXT;
+
+    return cov::releaseContext(context);
+}
+
+CL_API_ENTRY CL_EXT_PREFIX__VERSION_1_2_DEPRECATED cl_command_queue CL_API_CALL
+clCreateCommandQueue(cl_context context,
+                     cl_device_id device,
+                     cl_command_queue_properties properties,
+                     cl_int* errcode_ret) CL_EXT_SUFFIX__VERSION_1_2_DEPRECATED
+{
+    if (!cov::isValidObject<cov::Context>(context)) {
+        *errcode_ret = CL_INVALID_CONTEXT;
+        return nullptr;
+    }
+    if (!cov::isValidObject<cov::Device>(device)) {
+        *errcode_ret = CL_INVALID_DEVICE;
+        return nullptr;
+    }
+    if (properties != CL_QUEUE_OUT_OF_ORDER_EXEC_MODE_ENABLE || properties != CL_QUEUE_PROFILING_ENABLE) {
+        *errcode_ret = CL_INVALID_VALUE;
+        return nullptr;
+    }
+
+    return cov::createCommandQueue(context, device, properties, errcode_ret);
+}
+
+CL_API_ENTRY cl_int CL_API_CALL
+clRetainCommandQueue(cl_command_queue command_queue) CL_API_SUFFIX__VERSION_1_0
+{
+    if (!cov::isValidObject<cov::Queue>(command_queue)) return CL_INVALID_COMMAND_QUEUE;
+
+    return cov::retainCommandQueue(command_queue);
+}
+
+CL_API_ENTRY cl_int CL_API_CALL
+clReleaseCommandQueue(cl_command_queue command_queue) CL_API_SUFFIX__VERSION_1_0
+{
+    if (!cov::isValidObject<cov::Queue>(command_queue)) return CL_INVALID_COMMAND_QUEUE;
+
+    return cov::releaseCommandQueue(command_queue);
 }
 
 #ifdef __cplusplus

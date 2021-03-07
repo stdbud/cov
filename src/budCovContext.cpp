@@ -73,4 +73,18 @@ cl_context createContext(const cl_context_properties* properties,
     return reinterpret_cast<_cl_context*>(c);
 }
 
+cl_int retainContext(cl_context context)
+{
+    auto c = reinterpret_cast<Context*>(context);
+    c->retain();
+    return CL_SUCCESS;
+}
+
+cl_int releaseContext(cl_context context)
+{
+    auto c = reinterpret_cast<Context*>(context);
+    c->release();
+    return CL_SUCCESS;
+}
+
 }

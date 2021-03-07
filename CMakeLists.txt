@@ -21,7 +21,8 @@ add_library(OpenCL SHARED ${PROJECT_SOURCE_DIR}/src/budCovContext.cpp
                           ${PROJECT_SOURCE_DIR}/src/budCovDevice.cpp
                           ${PROJECT_SOURCE_DIR}/src/budCovEntries.cpp
                           ${PROJECT_SOURCE_DIR}/src/budCovIcd.cpp
-                          ${PROJECT_SOURCE_DIR}/src/budCovPlatform.cpp)
+                          ${PROJECT_SOURCE_DIR}/src/budCovPlatform.cpp
+                          ${PROJECT_SOURCE_DIR}/src/budCovQueue.cpp)
 target_include_directories(OpenCL PUBLIC ${PROJECT_SOURCE_DIR}/include
                                          ${PROJECT_SOURCE_DIR}/src)
 target_link_libraries(OpenCL PUBLIC vulkan)

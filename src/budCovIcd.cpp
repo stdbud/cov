@@ -10,12 +10,12 @@ IcdDispatch g_icdTable = {
 nullptr,//   cl_api_clGetDeviceInfo clGetDeviceInfo;
     clCreateContext,
 nullptr,//   cl_api_clCreateContextFromType clCreateContextFromType;
-nullptr,//   cl_api_clRetainContext clRetainContext;
-nullptr,//   cl_api_clReleaseContext clReleaseContext;
+    clRetainContext,
+    clReleaseContext,
 nullptr,//   cl_api_clGetContextInfo clGetContextInfo;
-nullptr,//   cl_api_clCreateCommandQueue clCreateCommandQueue;
-nullptr,//   cl_api_clRetainCommandQueue clRetainCommandQueue;
-nullptr,//   cl_api_clReleaseCommandQueue clReleaseCommandQueue;
+    clCreateCommandQueue,
+    clRetainCommandQueue,
+    clReleaseCommandQueue,
 nullptr,//   cl_api_clGetCommandQueueInfo clGetCommandQueueInfo;
 nullptr,//   cl_api_clSetCommandQueueProperty clSetCommandQueueProperty;
 nullptr,//   cl_api_clCreateBuffer clCreateBuffer;

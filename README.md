@@ -5,7 +5,7 @@ opencl on vulkan<br>
 
 # how to build
 
-## linux(current only support it)
+## linux
 
 clone this project and build it:
 
@@ -27,7 +27,25 @@ Here are test suites:
 ./budCovTest platform
 ```
 
+## windows
+
+clone this project and build it:
+
+```shell
+cd ${PROJECT_ROOT}
+mkdir build && cd build
+cmake ..
+cmake --build .
+```
+
 # supported API list
 
 clGetPlatformIDs<br>
 clGetPlatformInfo<br>
+clGetDeviceIDs<br>
+clCreateContext<br>
+clRetainContext<br>
+clReleaseContext<br>
+clCreateCommandQueue<br>
+clRetainCommandQueue<br>
+clReleaseCommandQueue<br>
