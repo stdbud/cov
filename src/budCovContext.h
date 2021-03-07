@@ -1,6 +1,5 @@
 #pragma once
 
-#include <thread>
 #include "budCovCommon.hpp"
 #include "budCovObject.hpp"
 #include "budCovUtils.hpp"

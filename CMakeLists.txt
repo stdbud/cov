@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 project(budCov VERSION 1.0)
 
 set(CMAKE_CXX_COMPILER g++)
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 add_library(vulkan SHARED ${PROJECT_SOURCE_DIR}/vkstub/budVkStub.cpp)
 target_include_directories(vulkan PUBLIC ${PROJECT_SOURCE_DIR}/include)
