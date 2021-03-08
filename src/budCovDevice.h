@@ -9,7 +9,6 @@ namespace cov {
 
 class Device : public ClObject<ObjectMagic, ObjectMagic::DEVICE_MAGIC> {
     friend class Context;
-    friend class Queue;
 public:
     explicit Device(Platform& platform);
 

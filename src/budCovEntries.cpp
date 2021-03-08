@@ -4,6 +4,7 @@
 #include "budCovDevice.h"
 #include "budCovContext.h"
 #include "budCovQueue.h"
+#include "budCovProgram.h"
 
 #if defined(__clang__)
 // do something
@@ -164,6 +165,31 @@ clReleaseCommandQueue(cl_command_queue command_queue) CL_API_SUFFIX__VERSION_1_0
     if (!cov::isValidObject<cov::Queue>(command_queue)) return CL_INVALID_COMMAND_QUEUE;
 
     return cov::releaseCommandQueue(command_queue);
+}
+
+CL_API_ENTRY cl_program CL_API_CALL
+clCreateProgramWithSource(cl_context context,
+                          cl_uint count,
+                          const char** strings,
+                          const size_t* lengths,
+                          cl_int* errcode_ret) CL_API_SUFFIX__VERSION_1_0
+{
+    if (!cov::isValidObject<cov::Context>(context)) {
+        *errcode_ret = CL_INVALID_CONTEXT;
+        return nullptr;
+    }
+    if (count == 0 || !strings) {
+        *errcode_ret = CL_INVALID_VALUE;
+        return nullptr;
+    }
+    for (cl_uint i = 0; i < count; i++) {
+        if (strings[i] == nullptr) {
+            *errcode_ret = CL_INVALID_VALUE;
+            return nullptr;
+        }
+    }
+
+    return cov::createProgramWithSource(context, count, strings, lengths, errcode_ret);
 }
 
 #ifdef __cplusplus

@@ -13,7 +13,7 @@ Queue::Queue(Context& context, Device& device, bool isOutOfOrder, bool enablePro
       m_enableProfiling(enableProfiling),
       m_vkQueue(context.m_vkQueue)
 {
-    m_initSuccess = context.m_initSuccess && device.m_initSuccess;
+    m_initSuccess = true; // fixme
     if (m_initSuccess) m_context.retain();
 }
 

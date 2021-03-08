@@ -11,6 +11,7 @@ using contextCallback = void(*)(const char*, const void*, size_t, void*);
 
 class Context : public ClObject<ObjectMagic, ObjectMagic::CONTEXT_MAGIC> {
     friend class Queue;
+    friend class Program;
 public:
     explicit Context(const Device& device, contextCallback pfnNotify, void* userData);
     ~Context();

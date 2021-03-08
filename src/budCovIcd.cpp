@@ -30,7 +30,7 @@ nullptr,//   cl_api_clCreateSampler clCreateSampler;
 nullptr,//   cl_api_clRetainSampler clRetainSampler;
 nullptr,//   cl_api_clReleaseSampler clReleaseSampler;
 nullptr,//   cl_api_clGetSamplerInfo clGetSamplerInfo;
-nullptr,//   cl_api_clCreateProgramWithSource clCreateProgramWithSource;
+    clCreateProgramWithSource,
 nullptr,//   cl_api_clCreateProgramWithBinary clCreateProgramWithBinary;
 nullptr,//   cl_api_clRetainProgram clRetainProgram;
 nullptr,//   cl_api_clReleaseProgram clReleaseProgram;
@@ -185,7 +185,6 @@ nullptr,//   cl_api_clSetProgramSpecializationConstant clSetProgramSpecializatio
 nullptr,//   cl_api_clCreateBufferWithProperties clCreateBufferWithProperties;
 nullptr,//   cl_api_clCreateImageWithProperties clCreateImageWithProperties;
 nullptr,//   cl_api_clSetContextDestructorCallback clSetContextDestructorCallback;
-
 };
 
 IcdDispatch* getIcdTable()
